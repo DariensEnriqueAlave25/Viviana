@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>¡Feliz Cumpleaños, Viviana!</title>
+    <style>
+       body {
+        font-family: 'Arial', sans-serif;
+        background-image: url('img/Gojo.jpg');
+        background-size: 100% 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 80%;
+        max-width: 400px;
+        margin: 0 10px;
+    }
+
+    h1 {
+    color: #ff4d4d;
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    }
+
+
+    p {
+        color: #333;
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    input[type="date"] {
+        padding: 8px;
+        margin: 10px 0;
+        border: 2px solid #ff4d4d;
+        border-radius: 5px;
+        font-size: 14px;
+        width: 100%;
+        box-sizing: border-box;
+        height: 40px;
+    }
+
+    input[type="date"]:hover,
+    input[type="date"]:focus {
+        border-color: #ff3333;
+    }
+
+    input[type="submit"],
+    .btn-modal {
+        padding: 15px 30px;
+        margin: 10px 0;
+        cursor: pointer;
+        font-size: 18px;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        width: 100%;
+    }
+
+    input[type="submit"] {
+        background-color: #ff4d4d;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #ff3333;
+    }
+
+    .btn-modal {
+        background-color: #00bfff; 
+    }
+
+    .btn-modal:hover {
+        background-color: #009acd; 
+    }
+
+    .modal-header {
+    text-align: center;
+    background-color: #ff4d4d; 
+    color: #fff; 
+    }
+
+    .modal-title {
+        margin: 0 auto; 
+    }
+
+    .btn-custom-close {
+        background-color: #00bfff; 
+        color: #fff; 
+        border: none; 
+        border-radius: 5px; 
+        padding: 10px 20px; 
+    }
+
+    .btn-custom-close:hover {
+        background-color: #009acd; 
+        color: #fff; 
+    }
+
+    .modal-text {
+        text-align: justify;
+    }
+    input[type="submit"],
+    .btn-modal {
+        font-family: Arial, sans-serif; 
+    }
+
+    </style>
+</head>
+<body>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">❤️Feliz cumpleaños conejita❤️</h4>
+          </div>
+          <div class="modal-body">
+            <img src="img/ModalBienvenida.jpg" alt="Descripción de la imagen" class="img-responsive">
+            <p class="modal-text">🌹Un día como hoy nacio una personita  muy especial, no se si sea la primera persona o no en desearte
+                                  un FELIZ CUMPLEAÑOS❤️, pero vengo aquí yo a deseartelo. El día de hoy seguro iras a trabajar, pero 
+                                  espero por la noche almenos pases un buen momento en familia, de mi parte te doy este regalo, aunque
+                                  talvez parezca muy simple pero creeme lo hice con mucho cariño para ti. Espero este día tan maravilloso
+                                  la pases muy bien, recuerda que eres una persona muy especial, vales mucho y ojalá todas tus metas que
+                                  tienes para tu vida se cumpla, de mi parte espero poder seguir acompañadote nucho tiempo mas, espero te
+                                  encante esto bb jj, pasala bien si? te deseo un !FELIZ CUMPLEAÑOOOOOOOOOOOOS¡🌹🌹🌹
+            </p>
+                <audio id="birthdayAudio" src="sounds/CumpleañosFeliz.mp3"></audio>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default btn-custom-close" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="container">
+        <h1>¿Sabes que día es hoy hermosa?</h1>
+        <p>❤️Obviamente es un día especial, espero te gusteeee❤️</p>
+        <form id="birthdayForm" action="main.html" method="get">
+            <input type="date" id="fechaCumpleaños" name="fechaCumpleaños" required>
+            <br>
+            <input type="submit" value="Ingresar y ver 👀" class="btn btn-info"> 
+            <button type="button" class="btn btn-info btn-modal" data-toggle="modal" data-target="#myModal">Dale click aquí bb 🌹</button>
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $('#myModal').on('shown.bs.modal', function () {
+                document.getElementById('birthdayAudio').play();
+            });
+    
+            $('#myModal').on('hidden.bs.modal', function () {
+                document.getElementById('birthdayAudio').pause();
+                document.getElementById('birthdayAudio').currentTime = 0; 
+            });
+    
+            document.getElementById("birthdayForm").onsubmit = function(event) {
+                event.preventDefault(); // Previene el envío del formulario
+                var fechaCumpleaños = document.getElementById("fechaCumpleaños").value;
+                var fechaCorrecta = "2024-06-11"; 
+                if (fechaCumpleaños === fechaCorrecta) {
+                    window.location.href = 'main.html'; 
+                } else {
+                    alert("Por favor, selecciona la fecha correcta de tu cumpleaños.");
+                }
+            };
+        });
+    </script>
+</body>
+</html>

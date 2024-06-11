@@ -1,0 +1,161 @@
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: rgb(255, 204, 0);
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.container {
+    text-align: center;
+    padding: 10px;
+    z-index: 10;
+    position: relative;
+}
+
+.title {
+    color: rgb(0, 0, 0);
+    font-size: 1.5em;
+    animation: fadeIn 2s ease-in-out;
+}
+
+button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    color: white;
+    background-color: #ff47f3;
+    border: none;
+    border-radius: 50px; 
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+button:hover {
+    background-color: #d335e5;
+    transform: scale(1.05); 
+}
+
+.centerButtonContainer {
+    text-align: center; 
+    margin-top: 20px; 
+    margin-bottom: 20px; 
+}
+
+.button {
+    display: inline-block; 
+    margin: 10px; 
+    padding: 15px 30px;
+    font-size: 1.2em;
+    color: white;
+    border: none;
+    border-radius: 50px; 
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    text-decoration: none; 
+}
+
+.backButton {
+    background-color: #4CAF50; 
+}
+
+.youtubeButton {
+    background-color: #ff5733; 
+}
+
+.button:hover {
+    background-color: rgba(255, 255, 255, 0.1); 
+    transform: scale(1.05); 
+}
+
+
+#timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out 2s forwards;
+}
+
+.timeline-event {
+    margin: 20px;
+    padding: 20px;
+    background-color: rgb(233, 228, 228);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+    text-align: left;
+    position: relative;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s, transform 1s;
+}
+
+.timeline-event img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.timeline-event.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#confettiContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.confetti {
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    position: absolute;
+    animation: fall 5s linear infinite;
+    opacity: 0.8;
+    transform: rotate(45deg);
+}
+
+.confetti:nth-child(2n) {
+    background-color: green;
+}
+
+.confetti:nth-child(3n) {
+    background-color: blue;
+}
+
+.confetti:nth-child(4n) {
+    background-color: yellow;
+}
+
+.confetti:nth-child(5n) {
+    background-color: pink;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
